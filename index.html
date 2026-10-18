@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karen | Analista de Qualidade (QA)</title>
+<meta name="description" content="Portfólio da Karen, analista de qualidade com foco em automação de testes com Java, Selenium e Cucumber.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5fb;
+    --surface: #ffffff;
+    --ink: #1f1b2e;
+    --muted: #625d78;
+    --line: #dcd7ea;
+    --accent: #6b4fd8;
+    --accent-ink: #ffffff;
+    --pass: #1b8a57;
+    --code-bg: #1f1b2e;
+    --code-ink: #ece8f8;
+    --code-key: #b9a6ff;
+    --code-pass: #5fd3a0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17142a;
+      --surface: #201c38;
+      --ink: #eeeaf9;
+      --muted: #a9a3c2;
+      --line: #342f52;
+      --accent: #a894ff;
+      --accent-ink: #17142a;
+      --pass: #5fd3a0;
+      --code-bg: #0f0c20;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, .btn:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Topo */
+  header.top {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  header.top .wrap {
+    display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem;
+    align-items: center; justify-content: space-between;
+  }
+  .brand {
+    font-family: "Bricolage Grotesque", Georgia, serif;
+    font-weight: 700; font-size: 1.15rem; color: var(--ink); text-decoration: none;
+  }
+  nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin: 0; padding: 0; }
+  nav a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.97rem; }
+  nav a:hover { color: var(--accent); }
+
+  /* Hero */
+  .hero { padding: 4rem 0 3.5rem; }
+  h1 {
+    font-family: "Bricolage Grotesque", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 6.4vw, 4rem);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+  }
+  .lead { font-size: 1.2rem; color: var(--muted); max-width: 56ch; margin: 0 0 2.25rem; }
+
+  .scenario {
+    background: var(--code-bg);
+    color: var(--code-ink);
+    border-radius: 10px;
+    padding: 1.4rem 1.5rem 1.5rem;
+    font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.93rem;
+    line-height: 1.85;
+    overflow-x: auto;
+  }
+  .scenario .row { display: block; white-space: nowrap; }
+  .scenario .k { color: var(--code-key); font-weight: 500; }
+  .scenario .i1 { padding-left: 1.5ch; }
+  .scenario .i2 { padding-left: 3ch; }
+  .scenario .step { position: relative; padding-right: 2.2ch; }
+  .scenario .step::after {
+    content: "✓";
+    color: var(--code-pass);
+    position: absolute; right: 0;
+    opacity: 0;
+    animation: pass 0.35s ease forwards;
+  }
+  .scenario .step:nth-of-type(1)::after { animation-delay: 0.6s; }
+  .scenario .step:nth-of-type(2)::after { animation-delay: 1.2s; }
+  .scenario .step:nth-of-type(3)::after { animation-delay: 1.8s; }
+  .scenario .step:nth-of-type(4)::after { animation-delay: 2.4s; }
+  @keyframes pass { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) {
+    .scenario .step::after { animation: none; opacity: 1; }
+    html { scroll-behavior: auto; }
+  }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+  .btn {
+    display: inline-block; padding: 0.7rem 1.25rem; border-radius: 8px;
+    font-weight: 600; text-decoration: none; font-size: 1rem;
+    border: 2px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.ghost { color: var(--accent); background: transparent; }
+  .btn:hover { filter: brightness(1.08); }
+
+  /* Seções */
+  section { padding: 3rem 0; border-top: 1px solid var(--line); }
+  h2 {
+    font-family: "Bricolage Grotesque", Georgia, serif;
+    font-weight: 700; font-size: 1.85rem; letter-spacing: -0.01em;
+    line-height: 1.2; margin: 0 0 1.25rem;
+  }
+  p { margin: 0 0 1rem; max-width: 66ch; }
+
+  .about-list { list-style: none; padding: 0; margin: 1.25rem 0 0; max-width: 66ch; }
+  .about-list li { padding: 0.45rem 0 0.45rem 1.25rem; position: relative; }
+  .about-list li::before {
+    content: ""; position: absolute; left: 0; top: 1.05em;
+    width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--pass);
+  }
+
+  .skills { display: grid; gap: 1.5rem 2.5rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .skills h3 { font-size: 1.05rem; margin: 0 0 0.5rem; font-weight: 600; }
+  .skills ul { list-style: none; padding: 0; margin: 0; color: var(--muted); }
+  .skills li { padding: 0.15rem 0; }
+
+  .project {
+    border-left: 4px solid var(--accent);
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 66ch;
+  }
+  .project h3 { margin: 0 0 0.35rem; font-size: 1.2rem; font-weight: 600; }
+  .project p { margin-bottom: 0.6rem; color: var(--muted); }
+  .stack { font-size: 0.93rem; color: var(--ink); font-weight: 500; }
+
+  .soon {
+    border: 2px dashed var(--line);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    max-width: 66ch;
+    color: var(--muted);
+  }
+  .soon p { margin: 0; }
+
+  .studying { max-width: 66ch; padding-left: 1.2rem; }
+  .studying li { padding: 0.2rem 0; }
+
+  footer { border-top: 1px solid var(--line); padding: 2rem 0 3rem; color: var(--muted); font-size: 0.95rem; }
+
+  @media (max-width: 520px) {
+    .hero { padding: 2.5rem 0 2.5rem; }
+    .scenario { font-size: 0.8rem; padding: 1.1rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Karen</a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#guias">Guias</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap">
+    <div class="hero">
+      <h1>Karen, analista de qualidade</h1>
+      <p class="lead">Faço testes manuais e automatizados para que o software funcione bem para quem o usa. Hoje foco em automação com Java, Selenium e Cucumber.</p>
+
+      <div class="scenario" role="img" aria-label="Cenário de teste em Gherkin: uma pessoa chega ao portfólio, vê os projetos de automação, encontra Java, Selenium e Cucumber funcionando e pode falar comigo pelo LinkedIn.">
+        <span class="row"><span class="k">Funcionalidade:</span> Conhecer o portfólio da Karen</span>
+        <span class="row i1"><span class="k">Cenário:</span> Pessoa recrutadora abre a página</span>
+        <span class="row i2 step"><span class="k">Dado que</span> você chegou ao meu portfólio</span>
+        <span class="row i2 step"><span class="k">Quando</span> você vê meus projetos de automação</span>
+        <span class="row i2 step"><span class="k">Então</span> você encontra Java, Selenium e Cucumber funcionando</span>
+        <span class="row i2 step"><span class="k">E</span> você pode falar comigo pelo LinkedIn</span>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="#projetos">Ver projetos</a>
+        <a class="btn ghost" href="https://github.com/karengabrieli98">Perfil no GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="sobre">
+    <div class="wrap">
+      <h2>Sobre mim</h2>
+      <p>Sou analista de qualidade júnior na Mosten Tecnologia &amp; Negócios, onde comecei como estagiária. Sou formada em Administração e em Análise e Desenvolvimento de Sistemas, e essa mistura me ajuda a olhar para o software tanto pelo lado do negócio quanto pelo lado técnico.</p>
+      <ul class="about-list">
+        <li>Testes manuais e automatizados, com atenção especial aos cenários de erro</li>
+        <li>Automação de interface com Java, Selenium, Cucumber (BDD), JUnit e Maven</li>
+        <li>Testes de API</li>
+        <li>Experiência com ServiceNow e ITSM</li>
+        <li>Moro em São Vicente (SP) e tenho inglês intermediário</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="wrap">
+      <h2>Habilidades</h2>
+      <div class="skills">
+        <div>
+          <h3>Automação</h3>
+          <ul>
+            <li>Java</li>
+            <li>Selenium WebDriver</li>
+            <li>Cucumber (BDD)</li>
+            <li>JUnit 5</li>
+            <li>Maven</li>
+            <li>Page Object</li>
+            <li>Cypress</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Testes</h3>
+          <ul>
+            <li>Testes manuais e funcionais</li>
+            <li>Cenários positivos e negativos</li>
+            <li>Testes de API</li>
+            <li>Escrita de cenários em Gherkin</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ferramentas e processos</h3>
+          <ul>
+            <li>Git e GitHub</li>
+            <li>Eclipse</li>
+            <li>ServiceNow</li>
+            <li>ITSM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <h2>Projetos de automação</h2>
+
+      <div class="project">
+        <h3><a href="https://github.com/karengabrieli98/automacao-login-bdd">automacao-login-bdd</a></h3>
+        <p>Automação do fluxo de login com BDD: cenários de autenticação e validação de credenciais escritos em Gherkin e executados com Selenium.</p>
+        <span class="stack">Java, Selenium, Cucumber</span>
+      </div>
+
+      <div class="project">
+        <h3><a href="https://github.com/karengabrieli98/qa-login-cenarios-erro">qa-login-cenarios-erro</a></h3>
+        <p>Testes de cenários negativos de login (credenciais inválidas, campos vazios e mensagens de erro), organizados com Page Object.</p>
+        <span class="stack">Java, Selenium, JUnit, Maven</span>
+      </div>
+
+      <p><a href="https://github.com/karengabrieli98?tab=repositories">Ver todos os repositórios no GitHub</a></p>
+    </div>
+  </section>
+
+  <section id="guias">
+    <div class="wrap">
+      <h2>Guias de QA</h2>
+      <div class="soon">
+        <p>Estou escrevendo meus primeiros guias, baseados no que pratico nos projetos acima. Eles vão aparecer aqui.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="estudando">
+    <div class="wrap">
+      <h2>Estudando agora</h2>
+      <ul class="studying">
+        <li>Automação de interface com Selenium e Java</li>
+        <li>BDD com Cucumber</li>
+        <li>Testes de API</li>
+        <li>Boas práticas de projeto de automação: Page Object, Maven e relatórios</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <h2>Vamos conversar?</h2>
+      <p>Se quiser trocar ideias sobre QA, automação de testes ou carreira em qualidade, me chame no LinkedIn.</p>
+      <div class="actions">
+        <a class="btn primary" href="COLE_AQUI_O_LINK_DO_SEU_LINKEDIN">Falar no LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/karengabrieli98">Ver GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Karen, analista de qualidade (QA). Feito com HTML e CSS e publicado no GitHub Pages.</div>
+</footer>
+
+</body>
+</html>
